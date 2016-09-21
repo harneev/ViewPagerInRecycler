@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import view.pager.recycler.model.Data;
@@ -26,6 +27,8 @@ public class ViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context mContext;
 
     private List<Data> mDataList = new ArrayList<>();
+
+    public HashMap<Integer, Integer> mViewPageStates = new HashMap<>();
 
     ViewAdapter(List<Data> list, Context context) {
 
@@ -74,12 +77,6 @@ public class ViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
     }
 
-    @Override
-    public int getItemViewType(int position) {
-
-        return mDataList.get(position).getViewType();
-    }
-
     private void configureTextItem(TextItemHolder holder, int position) {
 
         Data data = mDataList.get(position);
@@ -94,6 +91,27 @@ public class ViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         CustomPagerAdapter adapter = new CustomPagerAdapter(data.getPagerItemList(), mContext);
         holder.viewPager.setAdapter(adapter);
+
+        if (mViewPageStates.containsKey(position))
+            holder.viewPager.setCurrentItem(mViewPageStates.get(position));
+    }
+
+    @Override
+    public void onViewRecycled(RecyclerView.ViewHolder holder) {
+
+        if (holder instanceof PagerItemHolder) {
+
+            PagerItemHolder viewHolder = (PagerItemHolder) holder;
+
+            mViewPageStates.put(holder.getAdapterPosition(), viewHolder.viewPager.getCurrentItem());
+            super.onViewRecycled(holder);
+        }
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+
+        return mDataList.get(position).getViewType();
     }
 
     @Override
