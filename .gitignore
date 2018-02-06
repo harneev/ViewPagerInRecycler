@@ -19,8 +19,8 @@ local.properties
 proguard/
 
 # Android Studio
-.idea
-.gradle
+.idea/
+.gradle/
 /*/local.properties
 /*/out
 /*/*/build
@@ -35,8 +35,7 @@ proguard/
 *.swp
 *Thumbs.db
 
-.gradle
-/local.properties
+local.properties
 /.idea/workspace.xml
 .DS_Store
 *.DS_Store
