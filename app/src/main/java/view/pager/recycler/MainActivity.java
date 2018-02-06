@@ -11,6 +11,10 @@ import java.util.List;
 import view.pager.recycler.model.Data;
 import view.pager.recycler.model.PagerItem;
 
+/**
+ * Created by harneev on 20/09/16.
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -18,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        RecyclerView mRecyclerView = findViewById(R.id.recyclerView);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false));
         mRecyclerView.setHasFixedSize(false);
@@ -42,26 +46,18 @@ public class MainActivity extends AppCompatActivity {
             } else {
 
                 data.setViewType(ViewAdapter.VIEW_TYPE_PAGER);
-
                 List<PagerItem> pagerItemList = new ArrayList<>();
 
                 for (int j = 1; j <= 10; j++) {
-
                     PagerItem item = new PagerItem();
-
-                    item.setItemText("Harneev " + j);
-                    //item.setItemImage(R.drawable.pager_placeholder);
-
+                    item.setItemText(String.valueOf(j));
                     pagerItemList.add(item);
                 }
-
                 data.setPagerItemList(pagerItemList);
             }
-
             finalList.add(data);
         }
 
         return finalList;
-
     }
 }

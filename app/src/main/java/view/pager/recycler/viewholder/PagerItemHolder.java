@@ -14,12 +14,10 @@ import view.pager.recycler.utils.SquareViewPager;
 public class PagerItemHolder extends RecyclerView.ViewHolder {
 
     public SquareViewPager viewPager;
-    //public ImageView ivLoading;
 
     public PagerItemHolder(View view) {
         super(view);
 
-        viewPager = (SquareViewPager) view.findViewById(R.id.slidesPager);
-        //ivLoading = (ImageView) view.findViewById(R.id.ivLoading);
+        viewPager = view.findViewById(R.id.slidesPager);
     }
 }

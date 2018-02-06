@@ -6,8 +6,9 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 /**
- * Created by Varun on 4/2/16.
+ * Created by harneev on 4/2/16.
  */
+
 public class SquareViewPager extends ViewPager {
 
     public SquareViewPager(final Context context) {
@@ -20,6 +21,8 @@ public class SquareViewPager extends ViewPager {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        // here we are creating square view pager where height = width
+        // so instead of height we pass width as a parameter
         super.onMeasure(widthMeasureSpec, widthMeasureSpec);
 
         setMeasuredDimension(getMeasuredWidth(), getMeasuredWidth());

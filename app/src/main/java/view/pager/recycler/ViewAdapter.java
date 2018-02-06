@@ -21,19 +21,20 @@ import view.pager.recycler.viewholder.TextItemHolder;
 
 public class ViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    public static final int VIEW_TYPE_TEXT = 51;
-    public final static int VIEW_TYPE_PAGER = 52;
+    static final int VIEW_TYPE_TEXT = 51;
+    final static int VIEW_TYPE_PAGER = 52;
 
     private Context mContext;
 
     private List<Data> mDataList = new ArrayList<>();
 
-    public HashMap<Integer, Integer> mViewPageStates = new HashMap<>();
+    private HashMap<Integer, Integer> mViewPageStates = new HashMap<>();
 
     ViewAdapter(List<Data> list, Context context) {
 
-        if (list != null && list.size() > 0)
+        if (list != null && list.size() > 0) {
             mDataList.addAll(list);
+        }
 
         mContext = context;
     }
@@ -92,8 +93,9 @@ public class ViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         CustomPagerAdapter adapter = new CustomPagerAdapter(data.getPagerItemList(), mContext);
         holder.viewPager.setAdapter(adapter);
 
-        if (mViewPageStates.containsKey(position))
+        if (mViewPageStates.containsKey(position)) {
             holder.viewPager.setCurrentItem(mViewPageStates.get(position));
+        }
     }
 
     @Override

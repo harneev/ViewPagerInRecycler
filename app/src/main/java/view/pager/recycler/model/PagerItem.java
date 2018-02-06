@@ -8,13 +8,10 @@ import java.io.Serializable;
 
 public class PagerItem implements Serializable {
 
-    String itemText;
+    private String itemText;
 
-    int itemImage;
+    private int itemImage;
 
-    /*
-     * SETTER
-     */
     public void setItemImage(int itemImage) {
         this.itemImage = itemImage;
     }
@@ -23,9 +20,6 @@ public class PagerItem implements Serializable {
         this.itemText = itemText;
     }
 
-    /*
-     * GETTER
-     */
     public int getItemImage() {
         return itemImage;
     }

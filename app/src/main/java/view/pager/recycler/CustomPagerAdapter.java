@@ -47,9 +47,6 @@ public class CustomPagerAdapter extends PagerAdapter {
         if (data != null) {
 
             holder.pagerText.setText(data.getItemText());
-
-            if (!Check.isEmpty(data.getItemImage()))
-                holder.pagerImage.setBackgroundResource(data.getItemImage());
         }
 
         container.addView(rootView);
@@ -76,15 +73,15 @@ public class CustomPagerAdapter extends PagerAdapter {
         container.removeView((View) object);
     }
 
-    private class ViewHolder {
+    /**
+     * {@link android.support.v7.widget.RecyclerView.ViewHolder}
+     */
+    class ViewHolder {
 
-        TextView pagerText;
-        ImageView pagerImage;
+        public TextView pagerText;
 
-        public ViewHolder(View rootView) {
-
-            pagerText = (TextView) rootView.findViewById(R.id.tvPager);
-            pagerImage = (ImageView) rootView.findViewById(R.id.ivPager);
+        ViewHolder(View rootView) {
+            pagerText = rootView.findViewById(R.id.tvPager);
         }
     }
 }

@@ -2,30 +2,24 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000">
+    android:background="@drawable/pager_gradient">
 
-    <ImageView
-        android:id="@+id/ivPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop" />
+    <TextView
+        android:id="@+id/tvPager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="10dp"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="22sp" />
 
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="30dp"
-        android:gravity="bottom"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tvPager"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="sample"
-            android:textColor="#FFFFFF"
-            android:textSize="22sp" />
-
-    </LinearLayout>
+        android:padding="10dp"
+        android:text="I am view pager. Swipe me to left"
+        android:textColor="@android:color/white"
+        android:textSize="22sp" />
 
 </RelativeLayout>
