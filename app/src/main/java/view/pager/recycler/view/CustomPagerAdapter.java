@@ -16,7 +16,7 @@ import view.pager.recycler.model.PagerItem;
 import view.pager.recycler.utils.Check;
 
 /**
- * Created by harneev on 20/09/16.
+ * @author Harneev Sethi
  */
 
 public class CustomPagerAdapter extends PagerAdapter {

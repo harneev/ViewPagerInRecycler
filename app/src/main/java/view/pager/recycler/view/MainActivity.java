@@ -24,7 +24,7 @@ import view.pager.recycler.model.Data;
 import view.pager.recycler.model.PagerItem;
 
 /**
- * Created by harneev on 20/09/16.
+ * @author Harneev Sethi
  * <p>
  * PS: Navigation Drawer has been referenced from Android hive
  *

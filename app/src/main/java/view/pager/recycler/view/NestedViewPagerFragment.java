@@ -18,8 +18,6 @@ import view.pager.recycler.model.PagerItem;
 
 /**
  * @author Harneev Sethi
- * @bm.api 4
- * @since 2.0.0
  */
 
 public class NestedViewPagerFragment extends Fragment {
