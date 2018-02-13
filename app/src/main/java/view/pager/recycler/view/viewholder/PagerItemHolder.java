@@ -1,8 +1,7 @@
-package view.pager.recycler.viewholder;
+package view.pager.recycler.view.viewholder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
 
 import view.pager.recycler.R;
 import view.pager.recycler.utils.SquareViewPager;

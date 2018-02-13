@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">ViewPagerInRecycler</string>
+    <string name="app_name">Handling Recycler</string>
+
+    <!-- Toolbar titles when navigation menu item is selected -->
+    <string-array name="nav_item_activity_titles">
+        <item>Nested ViewPager</item>
+        <item>Nested Recycler</item>
+    </string-array>
+
+    <string name="nav_view_pager_item">ViewPager in Recycler</string>
+    <string name="nav_nested_recycler_item">Nested Recycler</string>
+
+    <string name="openDrawer">open_drawer</string>
+    <string name="closeDrawer">close_drawer</string>
 </resources>

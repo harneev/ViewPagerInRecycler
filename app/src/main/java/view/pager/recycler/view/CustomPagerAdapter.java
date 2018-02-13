@@ -1,4 +1,4 @@
-package view.pager.recycler;
+package view.pager.recycler.view;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import view.pager.recycler.R;
 import view.pager.recycler.model.PagerItem;
 import view.pager.recycler.utils.Check;
 

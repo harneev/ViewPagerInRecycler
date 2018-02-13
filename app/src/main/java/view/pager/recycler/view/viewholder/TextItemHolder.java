@@ -1,4 +1,4 @@
-package view.pager.recycler.viewholder;
+package view.pager.recycler.view.viewholder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
