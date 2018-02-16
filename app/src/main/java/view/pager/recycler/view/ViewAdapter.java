@@ -1,4 +1,4 @@
-package view.pager.recycler;
+package view.pager.recycler.view;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,10 +10,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import view.pager.recycler.R;
 import view.pager.recycler.model.Data;
 import view.pager.recycler.utils.Check;
-import view.pager.recycler.viewholder.PagerItemHolder;
-import view.pager.recycler.viewholder.TextItemHolder;
+import view.pager.recycler.view.viewholder.PagerItemHolder;
+import view.pager.recycler.view.viewholder.TextItemHolder;
 
 /**
  * Created by harneev on 20/09/16.
