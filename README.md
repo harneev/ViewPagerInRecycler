@@ -6,6 +6,6 @@ This project illustrates how to use `ViewPager` as a item of `RecyclerView`. Thi
 - [ ] Using `RecyclerView` with `SnapHelper`.
 <br>
 
-App displays list of items (mix of view pagers and normal text views) as recycler view item, as shown below in snapshot:
-
-![alt text](https://raw.githubusercontent.com/harneev/ViewPagerInRecycler/develop/app/snapshot/Screenshot_1518559578.png)
+App displays list of items (mix of view pagers and normal text views) as recycler view item.
+## Screenshot
+<img src="https://raw.githubusercontent.com/harneev/ViewPagerInRecycler/develop/app/snapshot/Screenshot_1518559578.png" width="300px">
