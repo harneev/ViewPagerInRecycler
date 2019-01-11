@@ -40,8 +40,10 @@ class NestedViewPagerFragment : Fragment() {
                     val pagerItemList = ArrayList<PagerItem>()
 
                     for (j in 1..10) {
+                        //TODO add images
                         val item = PagerItem()
                         item.itemText = j.toString()
+                        item.itemImageUrl= imageUrls()[j]
                         pagerItemList.add(item)
                     }
                     data.pagerItemList = pagerItemList
@@ -51,6 +53,15 @@ class NestedViewPagerFragment : Fragment() {
 
             return finalList
         }
+    private fun imageUrls(): Array<String>{
+        val images= arrayOf("https://picsum.photos/300/200?image=60","https://picsum.photos/300/200?image=8",
+                "https://picsum.photos/300/200?image=34","https://picsum.photos/300/200?image=54",
+                "https://picsum.photos/300/200?image=62","https://picsum.photos/300/200?image=12",
+                "https://picsum.photos/300/200?image=15","https://picsum.photos/300/200?image=27",
+                "https://picsum.photos/300/200?image=35","https://picsum.photos/300/200?image=69",
+                "https://picsum.photos/300/200?image=3","https://picsum.photos/300/200?image=5")
+        return  images
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_main, container, false)

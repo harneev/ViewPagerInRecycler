@@ -6,5 +6,5 @@ import java.io.Serializable
 class PagerItem : Serializable {
 
     var itemText: String? = null
-    var itemImage: Int = 0
+    var itemImageUrl: String? = null
 }

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.squareup.picasso.Picasso
 
 import java.util.ArrayList
 
@@ -23,7 +24,7 @@ class CustomPagerAdapter(list: List<PagerItem>?, private val mContext: Context) 
 
     init {
 
-        if (list != null && list.size > 0)
+        if (list != null && list.isNotEmpty())
             mPagerList.addAll(list)
 
         this.mInflater = mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -37,11 +38,10 @@ class CustomPagerAdapter(list: List<PagerItem>?, private val mContext: Context) 
 
         val data = mPagerList[position]
 
-        if (data != null) {
-
-            holder.pagerText.text = data.itemText
-        }
-
+        holder.pagerText.text ="Viewpager Item Number "+ data.itemText
+        Picasso.get().load(data.itemImageUrl)
+                .placeholder(R.drawable.placeholder)
+                .into(holder.imageView)
         container.addView(rootView)
 
         return rootView
@@ -69,9 +69,11 @@ class CustomPagerAdapter(list: List<PagerItem>?, private val mContext: Context) 
     internal inner class ViewHolder(rootView: View) {
 
         var pagerText: TextView
+        var imageView:ImageView
 
         init {
             pagerText = rootView.findViewById(R.id.tvPager)
+            imageView= rootView.findViewById(R.id.imageViewViewpager)
         }
     }
 }

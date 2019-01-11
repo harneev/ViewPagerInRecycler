@@ -21,14 +21,6 @@ import view.pager.recycler.R
 import view.pager.recycler.model.Data
 import view.pager.recycler.model.PagerItem
 
-/**
- * @author Harneev Sethi
- *
- *
- * PS: Navigation Drawer has been referenced from Android hive
- *
- * @see [Android Hive](https://www.androidhive.info/2013/11/android-sliding-menu-using-navigation-drawer/)
- */
 
 class MainActivity : AppCompatActivity() {
 
