@@ -40,7 +40,6 @@ class NestedViewPagerFragment : Fragment() {
                     val pagerItemList = ArrayList<PagerItem>()
 
                     for (j in 1..10) {
-                        //TODO add images
                         val item = PagerItem()
                         item.itemText = j.toString()
                         item.itemImageUrl= imageUrls()[j]
