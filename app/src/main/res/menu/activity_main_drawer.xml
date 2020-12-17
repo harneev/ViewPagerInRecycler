@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_view_pager_item_recycler"
-            android:title="@string/nav_view_pager_item" />
+            android:id="@+id/nav_nested_view_pager"
+            android:title="@string/nav_nested_view_pager" />
         <item
-            android:id="@+id/nav_recycler_item_recycler"
+            android:id="@+id/nav_nested_recycler"
             android:title="@string/nav_nested_recycler_item" />
     </group>
 </menu>

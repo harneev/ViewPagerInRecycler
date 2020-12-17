@@ -1,109 +1,51 @@
 package view.pager.recycler.view
 
 import android.os.Bundle
-import android.os.Handler
-import android.support.design.widget.NavigationView
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentTransaction
-import android.support.v4.widget.DrawerLayout
-import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.Toolbar
 import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-
-import java.util.ArrayList
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.navigation.NavigationView
 
 import view.pager.recycler.R
-import view.pager.recycler.model.Data
-import view.pager.recycler.model.PagerItem
-
 
 class MainActivity : AppCompatActivity() {
 
-    private var navigationView: NavigationView? = null
-    private var drawer: DrawerLayout? = null
-    private var toolbar: Toolbar? = null
-
-    private var mHandler: Handler? = null
-
-    // toolbar titles respected to selected nav menu item
-    private var navigationTitles: Array<String>? = null
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        toolbar = findViewById(R.id.toolbar)
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        mHandler = Handler()
+        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
+        val navView: NavigationView = findViewById(R.id.nav_view)
+        val navController = findNavController(R.id.nav_host_fragment)
 
-        drawer = findViewById(R.id.drawer_layout)
-        navigationView = findViewById(R.id.nav_view)
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        appBarConfiguration = AppBarConfiguration(setOf(
+                R.id.nav_nested_view_pager, R.id.nav_nested_recycler), drawerLayout)
 
-        // load toolbar titles from string resources
-        navigationTitles = resources.getStringArray(R.array.nav_item_activity_titles)
-
-        // initializing navigation menu
-        setUpNavigationView()
-
-        loadFragment(NestedViewPagerFragment())
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
     }
 
-    private fun loadFragment(fragment: Fragment?) {
-
-        // Sometimes, when fragment has huge data, screen seems hanging
-        // when switching between navigation menus
-        // So using runnable, the fragment is loaded with cross fade effect
-        // This effect can be seen in GMail app
-        val mPendingRunnable = Runnable {
-            // update the main content by replacing fragments
-            val fragmentTransaction = supportFragmentManager.beginTransaction()
-            fragmentTransaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-
-            fragmentTransaction.replace(R.id.frame, fragment!!)
-            fragmentTransaction.commitAllowingStateLoss()
-        }
-
-        mHandler!!.post(mPendingRunnable)
-
-        //Closing drawer on item click
-        drawer!!.closeDrawers()
-
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.main, menu)
+        return true
     }
 
-    private fun setUpNavigationView() {
-
-        //Setting Navigation View Item Selected Listener to handle the item click of the navigation menu
-        navigationView!!.setNavigationItemSelectedListener { item ->
-            var fragment: Fragment? = null
-
-            when (item.itemId) {
-
-                R.id.nav_view_pager_item_recycler -> fragment = NestedViewPagerFragment()
-
-                R.id.nav_recycler_item_recycler -> fragment = NestedRecyclerFragment()
-            }
-
-            loadFragment(fragment)
-
-            true
-        }
-
-        val actionBarDrawerToggle = object : ActionBarDrawerToggle(this, drawer, toolbar, R.string.openDrawer, R.string.closeDrawer) {
-
-        }
-
-        //Setting the actionbarToggle to drawer layout
-        drawer!!.setDrawerListener(actionBarDrawerToggle)
-
-        //calling sync state is necessary or else your hamburger icon wont show up
-        actionBarDrawerToggle.syncState()
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment)
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
-
-
 }

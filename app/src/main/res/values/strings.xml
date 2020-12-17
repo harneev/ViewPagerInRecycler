@@ -7,9 +7,16 @@
         <item>Nested Recycler</item>
     </string-array>
 
-    <string name="nav_view_pager_item">ViewPager in Recycler</string>
+    <string name="nav_nested_view_pager">Nested ViewPager in Recycler</string>
     <string name="nav_nested_recycler_item">Nested Recycler</string>
 
     <string name="openDrawer">open_drawer</string>
     <string name="closeDrawer">close_drawer</string>
+
+    <string name="menu_nested_view_pager">Nested View Pager</string>
+    <string name="menu_nested_recycler">Nested Recycler</string>
+
+    <string name="action_settings">Settings</string>
+
+
 </resources>

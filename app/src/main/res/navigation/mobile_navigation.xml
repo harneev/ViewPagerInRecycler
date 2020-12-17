@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_nested_view_pager">
+
+    <fragment
+        android:id="@+id/nav_nested_view_pager"
+        android:name="view.pager.recycler.view.NestedViewPagerFragment"
+        android:label="@string/menu_nested_view_pager"
+        tools:layout="@layout/fragment_main" />
+
+    <fragment
+        android:id="@+id/nav_nested_recycler"
+        android:name="view.pager.recycler.view.NestedRecyclerFragment"
+        android:label="@string/menu_nested_recycler"
+        tools:layout="@layout/fragment_second" />
+
+</navigation>
