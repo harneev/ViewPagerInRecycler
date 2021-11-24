@@ -15,18 +15,9 @@ import view.pager.recycler.view.viewholder.PagerItemHolder
 import view.pager.recycler.view.viewholder.TextItemHolder
 
 
-class ViewAdapter internal constructor(list: List<Data>?, private val mContext: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ViewAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val mDataList = ArrayList<Data>()
-
-    private val mViewPageStates = HashMap<Int, Int>()
-
-    init {
-
-        if (list != null && list.size > 0) {
-            mDataList.addAll(list)
-        }
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
@@ -77,7 +68,7 @@ class ViewAdapter internal constructor(list: List<Data>?, private val mContext: 
 
         val data = mDataList[position]
 
-        val adapter = CustomPagerAdapter(data.pagerItemList, mContext)
+        val adapter = CustomPagerAdapter(data.pagerItemList, context)
         holder.viewPager.adapter = adapter
 
         if (mViewPageStates.containsKey(position)) {

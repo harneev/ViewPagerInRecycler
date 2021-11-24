@@ -1,9 +1,9 @@
 package view.pager.recycler.model
 
-import java.io.Serializable
-
-class Data : Serializable {
-    var viewType: Int = 0
-    var textItem: String? = null
-    var pagerItemList: List<PagerItem>? = null
+data class Data(val textItem: String,
+                val pagerItemList: List<PagerItem>) {
+    fun bind(binding: ViewDa)
 }
+
+data class PagerItem(val itemText: String,
+                     val itemImageUrl: String)
