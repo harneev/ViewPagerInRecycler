@@ -1,9 +1,12 @@
 package view.pager.recycler.model
 
-import java.io.Serializable
+data class Data(
+    var viewType: Int = 0,
+    val textItem: String? = null,
+    val pagerItemList: List<PagerItem> = mutableListOf()
+)
 
-class Data : Serializable {
-    var viewType: Int = 0
-    var textItem: String? = null
-    var pagerItemList: List<PagerItem>? = null
-}
+data class PagerItem(
+    val itemText: String,
+    val itemImageUrl: String
+)
