@@ -29,17 +29,17 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:' + project.androidx_appcompat
     implementation 'androidx.recyclerview:recyclerview:' + project.androidx_recycler
     implementation 'androidx.navigation:navigation-fragment-ktx:' + project.androidx_navigation
     implementation 'androidx.navigation:navigation-ui-ktx:' + project.androidx_navigation
-
     implementation 'androidx.constraintlayout:constraintlayout:' + project.androidx_coordinator_layout
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:' + project.kotlinx_coroutines
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    testImplementation 'junit:junit:4.12'
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    testImplementation 'junit:junit:4.12'
 }
 repositories {
     mavenCentral()

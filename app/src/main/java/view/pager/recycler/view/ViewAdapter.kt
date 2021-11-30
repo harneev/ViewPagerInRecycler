@@ -2,42 +2,41 @@ package view.pager.recycler.view
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-
-import java.util.ArrayList
-import java.util.HashMap
 
 import view.pager.recycler.R
 import view.pager.recycler.model.Data
 import view.pager.recycler.utils.Check
-import view.pager.recycler.view.viewholder.PagerItemHolder
-import view.pager.recycler.view.viewholder.TextItemHolder
+import view.pager.recycler.utils.SquareViewPager
 
+/**
+ * [RecyclerView.Adapter] holding [NestedRecyclerFragment] view pager logic
+ */
+class ViewAdapter(private val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-class ViewAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private val viewPageStates = HashMap<Int, Int>()
 
-    private val mDataList = ArrayList<Data>()
+    var dataList = mutableListOf<Data>()
+        set(value) {
+            field.clear()
+            field.addAll(value)
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
-        var viewHolder: RecyclerView.ViewHolder? = null
         val inflater = LayoutInflater.from(parent.context)
 
-        when (viewType) {
+        return when (viewType) {
+            VIEW_TYPE_TEXT ->
+                TextItemHolder(inflater.inflate(R.layout.item_recycler_text, parent, false))
 
-            VIEW_TYPE_TEXT -> {
-                val userView = inflater.inflate(R.layout.item_recycler_text, parent, false)
-                viewHolder = TextItemHolder(userView)
-            }
-
-            VIEW_TYPE_PAGER -> {
-                val blockbusterView = inflater.inflate(R.layout.item_recycler_pager, parent, false)
-                viewHolder = PagerItemHolder(blockbusterView)
-            }
+            else ->
+                PagerItemHolder(inflater.inflate(R.layout.item_recycler_pager, parent, false))
         }
-
-        return viewHolder!!
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -58,7 +57,7 @@ class ViewAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.View
 
     private fun configureTextItem(holder: TextItemHolder, position: Int) {
 
-        val data = mDataList[position]
+        val data = dataList[position]
 
         if (!Check.isEmpty(data.textItem))
             holder.tvTitle.text = data.textItem
@@ -66,38 +65,48 @@ class ViewAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.View
 
     private fun configurePagerHolder(holder: PagerItemHolder, position: Int) {
 
-        val data = mDataList[position]
+        val data = dataList[position]
 
         val adapter = CustomPagerAdapter(data.pagerItemList, context)
         holder.viewPager.adapter = adapter
 
-        if (mViewPageStates.containsKey(position)) {
-            holder.viewPager.currentItem = mViewPageStates[position]!!
+        if (viewPageStates.containsKey(position)) {
+            viewPageStates[position]?.let {
+                holder.viewPager.currentItem = it
+            }
         }
     }
 
     override fun onViewRecycled(holder: RecyclerView.ViewHolder) {
-
         if (holder is PagerItemHolder) {
 
-            mViewPageStates[holder.getAdapterPosition()] = holder.viewPager.currentItem
+            viewPageStates[holder.getAdapterPosition()] = holder.viewPager.currentItem
             super.onViewRecycled(holder)
         }
     }
 
-    override fun getItemViewType(position: Int): Int {
+    override fun getItemViewType(position: Int): Int = dataList[position].viewType
 
-        return mDataList[position].viewType
-    }
-
-    override fun getItemCount(): Int {
-
-        return mDataList.size
-    }
+    override fun getItemCount(): Int = dataList.size
 
     companion object {
-
-        internal val VIEW_TYPE_TEXT = 51
-        internal val VIEW_TYPE_PAGER = 52
+        internal const val VIEW_TYPE_TEXT = 51
+        internal const val VIEW_TYPE_PAGER = 52
     }
+}
+
+/**
+ * [RecyclerView.ViewHolder] holding the title of type [TextView]
+ */
+private class TextItemHolder(view: View) : RecyclerView.ViewHolder(view) {
+
+    var tvTitle: TextView = view.findViewById<View>(R.id.tv_item) as TextView
+}
+
+/**
+ * [RecyclerView.ViewHolder] holding nested [SquareViewPager]
+ */
+private class PagerItemHolder(view: View) : RecyclerView.ViewHolder(view) {
+
+    val viewPager: SquareViewPager = view.findViewById(R.id.slidesPager)
 }
