@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/nav_nested_view_pager"
-        android:name="view.pager.recycler.ui.nestedviewpager.NestedViewPagerFragment"
+        android:name="view.pager.recycler.nestedviewpager.NestedViewPagerFragment"
         android:label="@string/menu_nested_view_pager"
         tools:layout="@layout/fragment_main" />
 
     <fragment
         android:id="@+id/nav_nested_recycler"
-        android:name="view.pager.recycler.view.NestedRecyclerFragment"
+        android:name="view.pager.recycler.nestedrecycler.NestedRecyclerFragment"
         android:label="@string/menu_nested_recycler"
         tools:layout="@layout/fragment_second" />
 

@@ -1,4 +1,4 @@
-package view.pager.recycler.ui.nestedviewpager
+package view.pager.recycler.nestedviewpager
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

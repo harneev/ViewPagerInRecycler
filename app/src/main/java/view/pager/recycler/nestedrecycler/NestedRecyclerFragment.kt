@@ -1,4 +1,4 @@
-package view.pager.recycler.view
+package view.pager.recycler.nestedrecycler
 
 import androidx.fragment.app.Fragment
 

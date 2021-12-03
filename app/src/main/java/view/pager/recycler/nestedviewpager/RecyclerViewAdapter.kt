@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 import view.pager.recycler.R
 import view.pager.recycler.model.Data
+import view.pager.recycler.nestedviewpager.ViewPagerAdapter
 import view.pager.recycler.utils.Check
 import view.pager.recycler.utils.SquareViewPager
 
@@ -67,7 +68,7 @@ class ViewAdapter(private val context: Context) : RecyclerView.Adapter<RecyclerV
 
         val data = dataList[position]
 
-        val adapter = CustomPagerAdapter(data.pagerItemList, context)
+        val adapter = ViewPagerAdapter(data.pagerItemList, context)
         holder.viewPager.adapter = adapter
 
         if (viewPageStates.containsKey(position)) {

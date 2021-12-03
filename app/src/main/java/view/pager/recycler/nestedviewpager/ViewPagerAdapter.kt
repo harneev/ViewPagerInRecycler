@@ -1,4 +1,4 @@
-package view.pager.recycler.view
+package view.pager.recycler.nestedviewpager
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -13,10 +13,9 @@ import java.util.ArrayList
 
 import view.pager.recycler.R
 import view.pager.recycler.model.PagerItem
-import view.pager.recycler.utils.Check
 
 
-class CustomPagerAdapter(list: List<PagerItem>?, private val mContext: Context) : PagerAdapter() {
+class ViewPagerAdapter(list: List<PagerItem>?, private val mContext: Context) : PagerAdapter() {
 
     private val mInflater: LayoutInflater
 
