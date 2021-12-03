@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 import view.pager.recycler.R
 import view.pager.recycler.model.Data
-import view.pager.recycler.nestedviewpager.pager.ViewAdapter
+import view.pager.recycler.nestedviewpager.pager.RecyclerViewAdapter
 
 /**
  * [Fragment] showing recycler view with nested [androidx.viewpager.widget.ViewPager]
@@ -37,12 +37,12 @@ class NestedViewPagerFragment : Fragment() {
         recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView).apply {
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
             setHasFixedSize(false)
-            adapter = ViewAdapter(requireActivity())
+            adapter = RecyclerViewAdapter(requireActivity())
         }
 
         viewModel.dataList.observe(viewLifecycleOwner, {dataList ->
             (dataList as? MutableList<Data>)?.let {
-                (recyclerView?.adapter as? ViewAdapter)?.dataList = it
+                (recyclerView?.adapter as? RecyclerViewAdapter)?.dataList = it
             }
         })
         viewModel.loadData()

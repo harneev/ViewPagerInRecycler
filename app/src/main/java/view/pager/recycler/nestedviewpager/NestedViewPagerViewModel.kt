@@ -8,7 +8,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import view.pager.recycler.model.Data
 import view.pager.recycler.model.PagerItem
-import view.pager.recycler.nestedviewpager.pager.ViewAdapter
+import view.pager.recycler.nestedviewpager.pager.RecyclerViewAdapter
 import java.util.ArrayList
 
 /**
@@ -40,12 +40,12 @@ class NestedViewPagerViewModel : ViewModel() {
                         }
                     }
                     Data(
-                        viewType = ViewAdapter.VIEW_TYPE_PAGER,
+                        viewType = RecyclerViewAdapter.VIEW_TYPE_PAGER,
                         pagerItemList = pagerItemList
                     )
                 } else {
                     Data(
-                        viewType = ViewAdapter.VIEW_TYPE_TEXT,
+                        viewType = RecyclerViewAdapter.VIEW_TYPE_TEXT,
                         textItem = "List Item: $i"
                     )
                 }

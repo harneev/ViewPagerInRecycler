@@ -1,4 +1,4 @@
-package view.pager.recycler.view
+package view.pager.recycler
 
 import android.os.Bundle
 import android.view.Menu

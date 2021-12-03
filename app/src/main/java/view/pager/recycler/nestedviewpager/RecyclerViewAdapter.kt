@@ -14,7 +14,7 @@ import view.pager.recycler.utils.Check
 /**
  * [RecyclerView.Adapter] holding [NestedRecyclerFragment] view pager logic
  */
-class ViewAdapter(private val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RecyclerViewAdapter(private val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val viewPageStates = HashMap<Int, Int>()
 
