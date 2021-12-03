@@ -8,7 +8,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import view.pager.recycler.model.Data
 import view.pager.recycler.model.PagerItem
-import view.pager.recycler.view.ViewAdapter
+import view.pager.recycler.nestedviewpager.pager.ViewAdapter
 import java.util.ArrayList
 
 /**

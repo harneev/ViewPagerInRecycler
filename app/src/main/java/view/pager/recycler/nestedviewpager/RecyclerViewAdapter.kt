@@ -1,4 +1,4 @@
-package view.pager.recycler.view
+package view.pager.recycler.nestedviewpager.pager
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,9 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 import view.pager.recycler.R
 import view.pager.recycler.model.Data
-import view.pager.recycler.nestedviewpager.ViewPagerAdapter
+import view.pager.recycler.nestedviewpager.pager.ViewPagerAdapter
 import view.pager.recycler.utils.Check
-import view.pager.recycler.utils.SquareViewPager
 
 /**
  * [RecyclerView.Adapter] holding [NestedRecyclerFragment] view pager logic

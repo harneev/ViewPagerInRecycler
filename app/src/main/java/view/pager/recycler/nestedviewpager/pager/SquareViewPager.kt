@@ -1,4 +1,4 @@
-package view.pager.recycler.utils
+package view.pager.recycler.nestedviewpager.pager
 
 import android.content.Context
 import android.util.AttributeSet

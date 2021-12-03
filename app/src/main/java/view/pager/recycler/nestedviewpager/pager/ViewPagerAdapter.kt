@@ -1,4 +1,4 @@
-package view.pager.recycler.nestedviewpager
+package view.pager.recycler.nestedviewpager.pager
 
 import android.content.Context
 import android.view.LayoutInflater

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<view.pager.recycler.utils.SquareViewPager
+<view.pager.recycler.nestedviewpager.pager.SquareViewPager
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/slidesPager"
     android:layout_width="match_parent"
