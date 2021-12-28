@@ -63,16 +63,10 @@ class ViewPagerAdapter(list: List<PagerItem>?, private val mContext: Context) : 
     }
 
     /**
-     * [android.support.v7.widget.RecyclerView.ViewHolder]
+     * Custom class to hold views of ever item
      */
     internal inner class ViewHolder(rootView: View) {
-
-        var pagerText: TextView
-        var imageView:ImageView
-
-        init {
-            pagerText = rootView.findViewById(R.id.tvPager)
-            imageView= rootView.findViewById(R.id.imageViewViewpager)
-        }
+        val pagerText: TextView = rootView.findViewById(R.id.tvPager)
+        val imageView:ImageView = rootView.findViewById(R.id.imageViewViewpager)
     }
 }

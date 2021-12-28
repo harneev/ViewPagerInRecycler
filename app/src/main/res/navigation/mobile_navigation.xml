@@ -15,6 +15,6 @@
         android:id="@+id/nav_nested_recycler"
         android:name="view.pager.recycler.nestedrecycler.NestedRecyclerFragment"
         android:label="@string/menu_nested_recycler"
-        tools:layout="@layout/fragment_second" />
+        tools:layout="@layout/fragment_main" />
 
 </navigation>
