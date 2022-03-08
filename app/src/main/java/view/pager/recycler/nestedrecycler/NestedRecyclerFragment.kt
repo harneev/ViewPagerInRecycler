@@ -36,11 +36,10 @@ class NestedRecyclerFragment : Fragment() {
             adapter = RecyclerViewAdapter(requireContext())
         }
 
-        viewModel.dataList.observe(viewLifecycleOwner, {dataList ->
-            (dataList as? MutableList<Data>)?.let {
-                (recyclerView?.adapter as? RecyclerViewAdapter)?.dataList = it
-            }
-        })
+        viewModel.dataList.observe(viewLifecycleOwner) {
+            (recyclerView?.adapter as? RecyclerViewAdapter)?.dataList =
+                it as MutableList<Data>
+        }
 
         viewModel.loadDataWithRecycler()
     }

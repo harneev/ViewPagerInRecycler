@@ -27,9 +27,7 @@ class NestedViewPagerFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_main, container, false)
-    }
+    ): View = inflater.inflate(R.layout.fragment_main, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -40,11 +38,10 @@ class NestedViewPagerFragment : Fragment() {
             adapter = RecyclerViewAdapter(requireContext())
         }
 
-        viewModel.dataList.observe(viewLifecycleOwner, {dataList ->
-            (dataList as? MutableList<Data>)?.let {
-                (recyclerView?.adapter as? RecyclerViewAdapter)?.dataList = it
-            }
-        })
+        viewModel.dataList.observe(viewLifecycleOwner) {
+            (recyclerView?.adapter as? RecyclerViewAdapter)?.dataList =
+                it as MutableList<Data>
+        }
 
         viewModel.loadDataWithPager()
     }
